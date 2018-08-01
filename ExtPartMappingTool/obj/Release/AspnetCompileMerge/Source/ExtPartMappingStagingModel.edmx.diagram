@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cbb6e2e0cd934dc0b6d6da891153536a" Name="Diagram1">
+        <EntityTypeShape EntityType="Magnaflow_WebModel.ExtPartMappingToolStagingActivity" Width="1.5" PointX="3.375" PointY="0.875" />
+        <EntityTypeShape EntityType="Magnaflow_WebModel.ExtPartMappingToolUploadStaging" Width="1.5" PointX="5.625" PointY="0.875" />
+        <AssociationConnector Association="Magnaflow_WebModel.FK_UploadStaging_StagingActivity" />
+        <EntityTypeShape EntityType="Magnaflow_WebModel.ExtPartMapping" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Magnaflow_WebModel.EPM_ProcessFilesBatch" Width="2" PointX="1.875" PointY="3.875" />
+        <EntityTypeShape EntityType="Magnaflow_WebModel.EPM_ProcessFilesDetail" Width="2" PointX="5.125" PointY="3.875" />
+        <AssociationConnector Association="Magnaflow_WebModel.FK__EPM_Proce__Batch__2C88998B" />
+        <EntityTypeShape EntityType="Magnaflow_WebModel.EPM_ProcessFilesStages" Width="1.5" PointX="4.5" PointY="5.625" />
+        <AssociationConnector Association="Magnaflow_WebModel.FK__EPM_Proce__Stage__27C3E46E" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

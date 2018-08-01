@@ -1,0 +1,26 @@
+﻿<div ng-controller="NestedViewsController" ng-init="init('Production')">
+    Current view is: <code>production</code> but value of global view is <code>{{this.mainController.development.indevelopment}}</code>
+    <select ng-model="template" ng-options="t.name for t in templates">
+        <option value="">(blank)</option>
+    </select>
+    url of the template: <code>{{template.url}}</code>
+    <hr />
+    <div class="slide-animate-container">
+        <div class="slide-animate" ng-include src="template.url"></div>
+    </div>
+</div>
+
+<ul class="nav nav-pills">
+    <!--<li><a href="#!routeOne">Route One</a></li>
+    <li><a href="#!routeTwo/6">Route Two</a></li>
+    <li><a href="#!routeThree">Route Three</a></li>-->
+    <li><a href="#!search">SEARCH</a></li>
+    <li><a href="#!ProductionView">VIEW ALL COMMISSION DATA cshtml</a></li>
+    <!--
+
+        <li><a href="#!signOut">Sign Out</a></li>
+        <li><a href="#!login">Login</a></li>
+    <li><a href="#!register">Register</a></li>-->
+</ul>
+
+

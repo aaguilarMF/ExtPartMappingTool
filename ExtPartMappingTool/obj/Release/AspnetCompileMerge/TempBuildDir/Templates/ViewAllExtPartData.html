@@ -1,0 +1,24 @@
+﻿<div class="container" ng-controller="ViewAllExtPartDataController" ng-init="init(mainController.currentStateHolder)">
+    <!--
+        global view is <code>{{mainController.currentStateHolder.currentState}}, {{currentState.currentState}}</code>
+    -->
+    
+    <div class="row col-md-12">
+        <label>Behold, All {{currentState.state}}  Data:</label>
+    </div>
+    <div class="row col-md-12">
+        <div ng-if="gridFilled" ng-style="{height: height.height + 'px'}">
+            <div ui-grid="gridOptions" ui-grid-selection ui-grid-edit></div>
+            <div><button type="button" class="btn btn-info" ng-click="deleteRow()">Delete Row</button></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-8">
+            <div class="bottom" ng-if="editModel.showButton">
+                <button type="button" class="btn btn-warning" ng-click="saveEdit()">Save Changes In Red</button>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,52 @@
+﻿<div class="container" ng-controller="AddRecordController" ng-init="currentState = mainController.currentStateHolder">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 ">
+                <label class="pull-right">
+                    Old Part Id:
+                </label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" ng-model="newEntryModel.oldPartId" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <label class="pull-right">
+                    New Part Id:
+                </label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" ng-model="newEntryModel.newPartId" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-3">
+                <button  type="button" class="btn btn-success pull-right" ng-click="add()">Submit</button>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div ng-if="gridFilled" ng-style="{height: height.height + 'px'}">
+                    <div ui-grid="gridOptions" ui-grid-selection ui-grid-edit></div>
+                    <div><button type="button" class="btn btn-info" ng-click="delete()">Delete Row</button></div>
+                </div>
+            </div>
+            <div class="col-lg-6"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-8">
+                <div class="bottom" ng-if="editModel.showButton">
+                    <button type="button" class="btn btn-warning" ng-click="edit()">Save Changes In RED</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

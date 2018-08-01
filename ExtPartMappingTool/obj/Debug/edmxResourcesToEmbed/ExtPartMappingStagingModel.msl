@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Magnaflow_WebModelStoreContainer" CdmEntityContainer="Magnaflow_WebEntities">
+    <EntitySetMapping Name="ExtPartMappingToolStagingActivities">
+      <EntityTypeMapping TypeName="Magnaflow_WebModel.ExtPartMappingToolStagingActivity">
+        <MappingFragment StoreEntitySet="ExtPartMappingToolStagingActivity">
+          <ScalarProperty Name="ActionType" ColumnName="ActionType" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="StagingActivityId" ColumnName="StagingActivityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExtPartMappingToolUploadStagings">
+      <EntityTypeMapping TypeName="Magnaflow_WebModel.ExtPartMappingToolUploadStaging">
+        <MappingFragment StoreEntitySet="ExtPartMappingToolUploadStaging">
+          <ScalarProperty Name="NewPartId" ColumnName="NewPartId" />
+          <ScalarProperty Name="OldPartId" ColumnName="OldPartId" />
+          <ScalarProperty Name="StagingActiviyId" ColumnName="StagingActiviyId" />
+          <ScalarProperty Name="UploadStagingId" ColumnName="UploadStagingId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExtPartMappings">
+      <EntityTypeMapping TypeName="Magnaflow_WebModel.ExtPartMapping">
+        <MappingFragment StoreEntitySet="ExtPartMapping">
+          <ScalarProperty Name="NewPartId" ColumnName="NewPartId" />
+          <ScalarProperty Name="OldPartId" ColumnName="OldPartId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EPM_ProcessFilesBatch">
+      <EntityTypeMapping TypeName="Magnaflow_WebModel.EPM_ProcessFilesBatch">
+        <MappingFragment StoreEntitySet="EPM_ProcessFilesBatch">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="StageId" ColumnName="StageId" />
+          <ScalarProperty Name="BatchId" ColumnName="BatchId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EPM_ProcessFilesDetail">
+      <EntityTypeMapping TypeName="Magnaflow_WebModel.EPM_ProcessFilesDetail">
+        <MappingFragment StoreEntitySet="EPM_ProcessFilesDetail">
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="BatchId" ColumnName="BatchId" />
+          <ScalarProperty Name="FileId" ColumnName="FileId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EPM_ProcessFilesStages">
+      <EntityTypeMapping TypeName="Magnaflow_WebModel.EPM_ProcessFilesStages">
+        <MappingFragment StoreEntitySet="EPM_ProcessFilesStages">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="StageId" ColumnName="StageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

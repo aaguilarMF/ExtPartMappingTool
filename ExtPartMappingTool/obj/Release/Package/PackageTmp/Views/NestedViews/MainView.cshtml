@@ -1,0 +1,30 @@
+﻿<div ng-controller="NestedViewsController" ng-init="init(mainController.currentStateHolder)">
+    <!--
+        global view is <code>{{mainController.currentStateHolder.currentState}}</code> but this one is {{currentState.currentState}}
+    -->
+    
+    <div class="container">
+        <ul class="nav nav-pills">
+            <!--<li><a href="#!routeOne">Route One</a></li>
+            <li><a href="#!routeTwo/6">Route Two</a></li>
+            <li><a href="#!routeThree">Route Three</a></li>-->
+            <li><a ng-click="currentTab = tabs.search; nameOfTab = 'SEARCH'">SEARCH</a></li>
+            <li><a ng-click="currentTab = tabs.view;  nameOfTab = 'VIEW ALL'">VIEW ALL</a></li>
+            <li><a ng-click="currentTab = tabs.addRecord;  nameOfTab = 'ADD RECORD'"> ADD RECORD</a></li>
+            <li><a ng-click="currentTab = tabs.uploadFile;  nameOfTab = 'UPLOAD FILE'"> UPLOAD FILE</a></li>
+            <!--
+
+                <li><a href="#!signOut">Sign Out</a></li>
+                <li><a href="#!login">Login</a></li>
+            <li><a href="#!register">Register</a></li>-->
+        </ul>
+
+    </div>
+    Current View:  <code>{{nameOfTab}}</code>
+    <hr />
+    <div class="slide-animate ">
+        <div class="slide-animate " ng-include src="currentTab"></div>
+    </div>
+</div>
+
+

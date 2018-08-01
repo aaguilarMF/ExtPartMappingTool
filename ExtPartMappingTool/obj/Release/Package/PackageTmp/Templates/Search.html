@@ -1,0 +1,92 @@
+﻿<div class="container" ng-controller="SearchController" ng-init="currentState = mainController.currentStateHolder">
+    <!--
+        global view is <code>{{mainController.currentStateHolder.currentState}}, {{currentState.currentState}}</code>
+    -->
+    <div class="row ">
+        <div class="col-md-6 ">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Old Part Id  </label>
+                    <input type="text" ng-model="searchModel.oldPartId" />
+                </div>
+                <div class="col-md-6">
+                    <input type="checkbox" ng-click="modelCheckBox.selected()" ng-model="modelCheckBox.byOldPartId">
+                    Search by Old_Part_ID
+                </div>
+            </div>
+            <div style="padding-top:10px"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>New Part Id</label>
+                    <input type="text" ng-model="searchModel.newPartId" />
+                </div>
+                <div class="col-md-6">
+                    <input type="checkbox" ng-click="modelCheckBox.selected()" ng-model="modelCheckBox.byNewPartId">
+                    Search by New_Part_ID
+                </div>
+            </div>
+            <div style="padding-top:10px"></div>
+            <div class="row">
+                <div class="col-md-6">
+                </div>
+                <div class="col-md-6">
+                    <input type="checkbox" ng-click="modelCheckBox.checkedBoth()" ng-model="modelCheckBox.byBoth">
+                    Search by Both
+                </div>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-primary" ng-click="search()">Search</button>
+        <!--
+            <div ng-if="noCustomerFound" class="animate-if col-md-4">
+            <div>
+                <div class="pull-left">
+                    No Results. Would you like to add New Customer Number Entry?
+                </div>
+                <div class="text-center">
+                    <button type="button" class="btn btn-success" ng-click="createNewCustomerCommissionEntry()">Create New</button>
+                </div>
+            </div>
+        </div>
+        -->
+
+    </div>
+    <br />
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div ng-if="gridFilled" ng-style="{height: height.height + 'px'}">
+                    <div ui-grid="gridOptions" ui-grid-selection ui-grid-edit></div>
+                    <div><button type="button" class="btn btn-info" ng-click="delete()">Delete Row</button></div>
+                </div>
+            </div>
+            <div class="col-lg-6"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-8">
+                <div class="bottom" ng-if="editModel.showButton">
+                    <button type="button" class="btn btn-warning" ng-click="save()">Save Changes In RED</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--<button ng-click='toggleModal()'>Open Modal Dialog</button>-->
+    <modal-dialog show='false' width='750px' height='60%'>
+        <div class="container">
+            huh
+        </div>
+    </modal-dialog>
+</div>
+
+
+
+<!--
+    <div ng-if="noCustomerFound">
+        <h3 ng-bind="noCustomerFoundDialog"></h3>
+
+    </div>
+    -->

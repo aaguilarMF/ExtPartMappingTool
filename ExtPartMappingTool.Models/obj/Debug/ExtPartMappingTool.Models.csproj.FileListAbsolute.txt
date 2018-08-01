@@ -1,0 +1,9 @@
+C:\Users\aaguilar\Documents\Visual Studio 2015\Projects\ExtPartMappingTool\ExtPartMappingTool.Models\bin\Debug\ExtPartMappingTool.Models.dll
+C:\Users\aaguilar\Documents\Visual Studio 2015\Projects\ExtPartMappingTool\ExtPartMappingTool.Models\bin\Debug\ExtPartMappingTool.Models.pdb
+C:\Users\aaguilar\Documents\Visual Studio 2015\Projects\ExtPartMappingTool\ExtPartMappingTool.Models\bin\Debug\Newtonsoft.Json.dll
+C:\Users\aaguilar\Documents\Visual Studio 2015\Projects\ExtPartMappingTool\ExtPartMappingTool.Models\bin\Debug\Newtonsoft.Json.xml
+C:\Users\aaguilar\Documents\Visual Studio 2015\Projects\ExtPartMappingTool\ExtPartMappingTool.Models\obj\Debug\ExtPartMappingTool.Models.dll
+C:\Users\aaguilar\Documents\Visual Studio 2015\Projects\ExtPartMappingTool\ExtPartMappingTool.Models\obj\Debug\ExtPartMappingTool.Models.pdb
+C:\Users\aaguilar\Documents\Visual Studio 2015\Projects\ExtPartMappingTool\ExtPartMappingTool.Models\obj\Debug\ExtPartMappingTool.Models.csproj.CoreCompileInputs.cache
+C:\Users\aaguilar\Documents\Visual Studio 2015\Projects\ExtPartMappingTool\ExtPartMappingTool.Models\obj\Debug\ExtPartMappingTool.Models.csproj.CopyComplete
+C:\Users\aaguilar\Documents\Visual Studio 2015\Projects\ExtPartMappingTool\ExtPartMappingTool.Models\obj\Debug\ExtPartMappingTool.Models.csprojAssemblyReference.cache

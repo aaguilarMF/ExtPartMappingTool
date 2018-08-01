@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Magnaflow_WebModelProdStoreContainer" CdmEntityContainer="Magnaflow_WebEntitiesProd">
+    <EntitySetMapping Name="ExtPartMappingToolStagingActivities">
+      <EntityTypeMapping TypeName="Magnaflow_WebModelProd.ExtPartMappingToolStagingActivity">
+        <MappingFragment StoreEntitySet="ExtPartMappingToolStagingActivity">
+          <ScalarProperty Name="StagingActivityId" ColumnName="StagingActivityId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="ActionType" ColumnName="ActionType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExtPartMappingToolUploadStagings">
+      <EntityTypeMapping TypeName="Magnaflow_WebModelProd.ExtPartMappingToolUploadStaging">
+        <MappingFragment StoreEntitySet="ExtPartMappingToolUploadStaging">
+          <ScalarProperty Name="UploadStagingId" ColumnName="UploadStagingId" />
+          <ScalarProperty Name="StagingActiviyId" ColumnName="StagingActiviyId" />
+          <ScalarProperty Name="OldPartId" ColumnName="OldPartId" />
+          <ScalarProperty Name="NewPartId" ColumnName="NewPartId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExtPartMappings">
+      <EntityTypeMapping TypeName="Magnaflow_WebModelProd.ExtPartMapping">
+        <MappingFragment StoreEntitySet="ExtPartMapping">
+          <ScalarProperty Name="NewPartId" ColumnName="NewPartId" />
+          <ScalarProperty Name="OldPartId" ColumnName="OldPartId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

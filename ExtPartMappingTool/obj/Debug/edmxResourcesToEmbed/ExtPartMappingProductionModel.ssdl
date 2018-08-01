@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Magnaflow_WebModelProd.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ExtPartMapping">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OldPartId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NewPartId" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ExtPartMappingToolStagingActivity">
+    <Key>
+      <PropertyRef Name="StagingActivityId" />
+    </Key>
+    <Property Name="StagingActivityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="Time" Type="datetime" Nullable="false" />
+    <Property Name="ActionType" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ExtPartMappingToolUploadStaging">
+    <Key>
+      <PropertyRef Name="UploadStagingId" />
+    </Key>
+    <Property Name="UploadStagingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StagingActiviyId" Type="int" Nullable="false" />
+    <Property Name="OldPartId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NewPartId" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_UploadStaging_StagingActivity">
+    <End Role="ExtPartMappingToolStagingActivity" Type="Self.ExtPartMappingToolStagingActivity" Multiplicity="1" />
+    <End Role="ExtPartMappingToolUploadStaging" Type="Self.ExtPartMappingToolUploadStaging" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExtPartMappingToolStagingActivity">
+        <PropertyRef Name="StagingActivityId" />
+      </Principal>
+      <Dependent Role="ExtPartMappingToolUploadStaging">
+        <PropertyRef Name="StagingActiviyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Magnaflow_WebModelProdStoreContainer">
+    <EntitySet Name="ExtPartMapping" EntityType="Self.ExtPartMapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExtPartMappingToolStagingActivity" EntityType="Self.ExtPartMappingToolStagingActivity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExtPartMappingToolUploadStaging" EntityType="Self.ExtPartMappingToolUploadStaging" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_UploadStaging_StagingActivity" Association="Self.FK_UploadStaging_StagingActivity">
+      <End Role="ExtPartMappingToolStagingActivity" EntitySet="ExtPartMappingToolStagingActivity" />
+      <End Role="ExtPartMappingToolUploadStaging" EntitySet="ExtPartMappingToolUploadStaging" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

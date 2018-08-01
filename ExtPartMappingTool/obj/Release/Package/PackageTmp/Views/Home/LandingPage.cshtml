@@ -1,0 +1,108 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/JQuery")
+@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/Angular")
+@Scripts.Render("~/bundles/ui-bootstrap")
+@Scripts.Render("~/bundles/ExtPartMappingTool")
+<!DOCTYPE html>
+<html ng-app="ExtPartMappingTool" ng-controller="LandingPageController as mainController">
+<head>
+    <title ng-bind="models.nameLabel"></title>
+    @*@if (!ViewBag.DEBUG)
+    {
+        <base href="/ExtPartMappingTool/">
+    }*@
+</head>
+
+<body ng-class="{inProduction :mainController.currentStateHolder.currentState == mainController.states.Production }">
+    <div class="navbar navbar-default navbar-fixed-top"  role="navigation">
+        <div class="pm-headbar-logo" style="width:80px;">
+            <img src="~/Images/logo.png" style="height:50px;width:80px;float:left;" />
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li><a href="http://devtoolset.magnaflow.com/"> MagnaFlow ToolSet</a></li>
+            </ul>
+        </div>
+        <div class="container" >
+            <div class="row text-center">
+                <div class="navbar-header col-md-offset-3 col-lg-offset-3">
+                    <button type="button" class="navbar-toggle" ng-click="navbarProperties.isCollapsed = !navbarProperties.isCollapsed">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand pull-left" href="#" ng-click="models.devActive = false; models.prodActive = false;">Mapping Tool</a>
+                </div>
+                <div class="navbar-collapse collapse" uib-collapse="navbarProperties.isCollapsed">
+                    <ul class="nav navbar-nav">
+                        <li ng-class="{active: models.devActive}"><a ng-click="developmentView()" href="#!DevelopmentView">Staging</a></li>
+                        <li ng-class="{active: models.prodActive}"><a ng-click="productionView()" href="#!ProductionView">Production</a></li>
+                        <li>@Html.ActionLink("Process-Files-Tool", "ProcessAcesPiesFiles", "Home", new { area = "" }, null)</li>
+                        <!--<li><button type="button" class="btn btn-success" ng-click="toggleDevelopment()">togle dev value</button></li>-->
+                    </ul>
+                    @if (ViewBag.Name != null && ViewBag.Name != "")
+                    {
+                        <div class="pull-right">
+                            <div class="row">
+                                <span>
+                                    HI, <code>@ViewBag.Name</code>!
+                                </span>
+                            </div>
+                            <div class="row pull-right">
+                                <button type="button" class="btn btn-success" ng-click="logOff()">LOGOUT</button>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mainContent">
+        <div class="text-center">
+            <h1>Ext Part Mapping Tool</h1>
+            <h1 ng-if="mainController.currentStateHolder.currentState == mainController.states.Development" class="text-success">(Staging)</h1>
+            <h1 ng-if="mainController.currentStateHolder.currentState == mainController.states.Production" class="text-danger">(Production)</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div ui-view="containerOne"></div>
+            </div>
+            <div class="col-md-6">
+                <div ui-view="containerTwo"></div>
+            </div>
+        </div>
+        <ul class="nav nav-pills">
+            <!--<li><a href="#!routeOne">Route One</a></li>
+            <li><a href="#!routeTwo/6">Route Two</a></li>
+            <li><a href="#!routeThree">Route Three</a></li>
+
+
+                    <li><button type="button" class="btn btn-success" ng-click="toggleDevelopment()">logout</button></li>
+                    -->
+            <!--
+                <li><a href="#!DevelopmentView">SEARCH</a></li>
+            <li><a href="#!ProductionView">VIEW ALL COMMISSION DATA</a></li>
+                <li><a href="#!signOut">Sign Out</a></li>
+                <li><a href="#!login">Login</a></li>
+            <li><a href="#!register">Register</a></li>-->
+        </ul>
+    </div>
+
+    <!--<ul>
+        <li><a href="#!login">Login</a></li>
+        <li><a href="#!register">Register</a></li>
+    </ul>-->
+    <div class="container">
+        <div class="gridStyle" ng-view></div>
+    </div>
+
+
+</body>
+</html>

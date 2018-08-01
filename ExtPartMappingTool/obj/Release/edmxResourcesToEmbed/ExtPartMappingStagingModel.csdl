@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Magnaflow_WebModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Magnaflow_WebEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ExtPartMappingToolStagingActivities" EntityType="Magnaflow_WebModel.ExtPartMappingToolStagingActivity" />
+    <EntitySet Name="ExtPartMappingToolUploadStagings" EntityType="Magnaflow_WebModel.ExtPartMappingToolUploadStaging" />
+    <AssociationSet Name="FK_UploadStaging_StagingActivity" Association="Magnaflow_WebModel.FK_UploadStaging_StagingActivity">
+      <End Role="ExtPartMappingToolStagingActivity" EntitySet="ExtPartMappingToolStagingActivities" />
+      <End Role="ExtPartMappingToolUploadStaging" EntitySet="ExtPartMappingToolUploadStagings" />
+    </AssociationSet>
+    <EntitySet Name="ExtPartMappings" EntityType="Magnaflow_WebModel.ExtPartMapping" />
+    <EntitySet Name="EPM_ProcessFilesBatch" EntityType="Magnaflow_WebModel.EPM_ProcessFilesBatch" />
+    <EntitySet Name="EPM_ProcessFilesDetail" EntityType="Magnaflow_WebModel.EPM_ProcessFilesDetail" />
+    <AssociationSet Name="FK__EPM_Proce__Batch__2C88998B" Association="Magnaflow_WebModel.FK__EPM_Proce__Batch__2C88998B">
+      <End Role="EPM_ProcessFilesBatch" EntitySet="EPM_ProcessFilesBatch" />
+      <End Role="EPM_ProcessFilesDetail" EntitySet="EPM_ProcessFilesDetail" />
+    </AssociationSet>
+    <EntitySet Name="EPM_ProcessFilesStages" EntityType="Magnaflow_WebModel.EPM_ProcessFilesStages" />
+    <AssociationSet Name="FK__EPM_Proce__Stage__27C3E46E" Association="Magnaflow_WebModel.FK__EPM_Proce__Stage__27C3E46E">
+      <End Role="EPM_ProcessFilesStages" EntitySet="EPM_ProcessFilesStages" />
+      <End Role="EPM_ProcessFilesBatch" EntitySet="EPM_ProcessFilesBatch" />
+    </AssociationSet>
+  </EntityContainer>
+  <EnumType Name="ActionType" a:ExternalTypeName="Types.ActionType" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+  <EntityType Name="ExtPartMappingToolStagingActivity">
+    <Key>
+      <PropertyRef Name="StagingActivityId" />
+    </Key>
+    <Property Name="StagingActivityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ActionType" Type="Magnaflow_WebModel.ActionType" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ExtPartMappingToolUploadStaging">
+    <Key>
+      <PropertyRef Name="UploadStagingId" />
+    </Key>
+    <Property Name="UploadStagingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StagingActiviyId" Type="Int32" Nullable="false" />
+    <Property Name="OldPartId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NewPartId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_UploadStaging_StagingActivity">
+    <End Type="Magnaflow_WebModel.ExtPartMappingToolStagingActivity" Role="ExtPartMappingToolStagingActivity" Multiplicity="1" />
+    <End Type="Magnaflow_WebModel.ExtPartMappingToolUploadStaging" Role="ExtPartMappingToolUploadStaging" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExtPartMappingToolStagingActivity">
+        <PropertyRef Name="StagingActivityId" />
+      </Principal>
+      <Dependent Role="ExtPartMappingToolUploadStaging">
+        <PropertyRef Name="StagingActiviyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ExtPartMapping">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OldPartId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NewPartId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="EPM_ProcessFilesBatch">
+    <Key>
+      <PropertyRef Name="BatchId" />
+    </Key>
+    <Property Name="BatchId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StageId" Type="Magnaflow_WebModel.ProcessFilesStages" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="EPM_ProcessFilesDetail" Relationship="Magnaflow_WebModel.FK__EPM_Proce__Batch__2C88998B" FromRole="EPM_ProcessFilesBatch" ToRole="EPM_ProcessFilesDetail" />
+    <NavigationProperty Name="EPM_ProcessFilesStages" Relationship="Magnaflow_WebModel.FK__EPM_Proce__Stage__27C3E46E" FromRole="EPM_ProcessFilesBatch" ToRole="EPM_ProcessFilesStages" />
+  </EntityType>
+  <EntityType Name="EPM_ProcessFilesDetail">
+    <Key>
+      <PropertyRef Name="FileId" />
+    </Key>
+    <Property Name="FileId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BatchId" Type="Int32" Nullable="false" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__EPM_Proce__Batch__2C88998B">
+    <End Type="Magnaflow_WebModel.EPM_ProcessFilesBatch" Role="EPM_ProcessFilesBatch" Multiplicity="1" />
+    <End Type="Magnaflow_WebModel.EPM_ProcessFilesDetail" Role="EPM_ProcessFilesDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EPM_ProcessFilesBatch">
+        <PropertyRef Name="BatchId" />
+      </Principal>
+      <Dependent Role="EPM_ProcessFilesDetail">
+        <PropertyRef Name="BatchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EnumType Name="ProcessFilesStage" a:ExternalTypeName="Models.Types.ProcessFilesStages" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+  <EntityType Name="EPM_ProcessFilesStages">
+    <Key>
+      <PropertyRef Name="StageId" />
+    </Key>
+    <Property Name="StageId" Type="Magnaflow_WebModel.ProcessFilesStages" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="56" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__EPM_Proce__Stage__27C3E46E">
+    <End Type="Magnaflow_WebModel.EPM_ProcessFilesStages" Role="EPM_ProcessFilesStages" Multiplicity="1" />
+    <End Type="Magnaflow_WebModel.EPM_ProcessFilesBatch" Role="EPM_ProcessFilesBatch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EPM_ProcessFilesStages">
+        <PropertyRef Name="StageId" />
+      </Principal>
+      <Dependent Role="EPM_ProcessFilesBatch">
+        <PropertyRef Name="StageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EnumType Name="ProcessFilesStages" a:ExternalTypeName="Models.Types.ProcessFilesStages" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+</Schema>

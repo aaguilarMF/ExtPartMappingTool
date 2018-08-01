@@ -1,3 +1,1 @@
-"*.webconfig" 
-"*/Web.config" 
-"/Web.config" 
+Web.config
